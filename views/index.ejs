@@ -1,0 +1,58 @@
+<html>
+
+<head>
+    <title> Todo app </title>
+    <link href="/styles.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        * {
+            font-family: "lato", sans-serif;
+            font-weight: bold;
+        }
+
+        body {
+            background: rgb(245, 245, 245);
+            color: #555555;
+            margin-top: 20px;
+        }
+
+        .container {
+            display: block;
+            width: 350px;
+            margin: 0 auto;
+        }
+
+        ul {
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2> Simple Todo app </h2>
+        <form action="/addtask" method="POST">
+            <input type="text" name="newtask" placeholder="add new task"> <button> Add Task </button>
+            <h2> Added Task </h2>
+            <button formaction="/removetask" type="submit"> Remove </button>
+            <h2> Added Task </h2>
+            <% for( var i=0; i < task.length; i++){ %>
+                <li>
+                    <label>
+                        <input type="checkbox" name="check" value="<%= task[i] %>" />
+                        <%= task[i] %>
+                    </label>
+                </li>
+                <% } %>
+                    <h2> Completed task </h2>
+                    <% for(var i=0; i < complete.length; i++){ %>
+                        <li><input type="checkbox" checked>
+                            <%= complete[i] %>
+                        </li>
+                        <% } %>
+        </form>
+    </div>
+</body>
+
+</html>
